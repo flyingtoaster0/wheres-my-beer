@@ -12,7 +12,16 @@ test/tmp
 test/version_tmp
 tmp
 
+.rspec
+.rvmrc
+/.bundle
+/vendor/bundle
+/log/*
+/db/*.sqlite3
+
 # YARD artifacts
 .yardoc
 _yardoc
 doc/
+
+.idea/
