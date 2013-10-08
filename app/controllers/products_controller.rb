@@ -18,10 +18,10 @@ class ProductsController < ApplicationController
 
 
   def search
-    query = params[:query]
+    query = params[:query].downcase
 
     # Check to see if there is an exact product name match
-    @products = Product.where('lower(name) = ?', query.downcase!).collect{|p| p.id}
+    @products = Product.where('lower(name) = ?', query).collect{|p| p.id}
 
     if @products.length == 1
       # Found it. Redirect to product page here.
