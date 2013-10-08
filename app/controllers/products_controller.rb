@@ -25,31 +25,33 @@ class ProductsController < ApplicationController
 
     if @products.length == 1
       # Found it. Redirect to product page here.
+      redirect_to product_url(@products.first)
     end
 
     if @products.empty?
-      @products = Product.where('lower(name) like ?', query.slice!(/ .*/) + '%').collect{|p| p.id}
+      query.split(' ').each { |x| @products = Product.where('lower(name) like ?', '%' + x + '%').collect{|p| p.id} }
 
+      # Found something. Redirect to product page here.
       if @products.length == 1
-        # Found something. Redirect to product page here.
+        redirect_to product_url(@products.first)
       end
 
-      # Still nothing... tough. Try searching with just the first three letters and see what you can find.
+      # Still nothing... tough. Try searching with just the first four letters of each word and see what you can find.
       if @products.empty?
-        @products = Product.where('lower(name) like ?', query[0..3] + '%').collect{|p| p.id}
-
+        query.split(' ').each { |x| @products = Product.where('lower(name) like ?', '%' + x[0..3] + '%').collect{|p| p.id} }
         if @products.length == 1
+          redirect_to product_url(@products.first)
           # Somehow found something. Redirect to product page here.
         end
       end
     end
 
+    # If you STILL found nothing, take em back to the front page and show one of those nice notices
     if @products.empty?
-      # If you STILL found nothing, take em back to the front page and show one of those nice "flash" errors.
-      # Be sure to pass params[:query] back to the front page so you can tell them what query didn't work.
+      redirect_to root_url, flash: { notice: 'Sorry! "' + params[:query] + '" returned no results :(' }
     end
 
-    # Otherwise, grats. You get to go to the view now.
+    # Otherwise, grats. You get to go to the view. Show search results.
   end
 
 end
