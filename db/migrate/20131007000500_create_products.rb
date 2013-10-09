@@ -5,8 +5,6 @@ class CreateProducts < ActiveRecord::Migration
       t.string :name
       t.integer :price_in_cents
       t.integer :regular_price_in_cents
-      t.integer :clearance_sale_savings_in_cents
-      t.integer :limited_time_offer_savings_in_cents
       t.string :stock_type
       t.string :primary_category
       t.string :secondary_category
@@ -19,7 +17,6 @@ class CreateProducts < ActiveRecord::Migration
       t.integer :total_package_volume_in_milliliters
       t.integer :volume_in_milliliters
       t.integer :alcohol_content
-      t.integer :price_per_liter_of_alcohol_in_cents
       t.integer :price_per_liter_in_cents
       t.string :producer_name
       t.string :image_thumb_url

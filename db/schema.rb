@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20131007004039) do
 
-  create_table "inventories", id: false, force: true do |t|
+  create_table "inventories", force: true do |t|
     t.integer "store_id"
     t.integer "product_id"
     t.integer "quantity"
@@ -23,8 +23,6 @@ ActiveRecord::Schema.define(version: 20131007004039) do
     t.string  "name"
     t.integer "price_in_cents"
     t.integer "regular_price_in_cents"
-    t.integer "clearance_sale_savings_in_cents"
-    t.integer "limited_time_offer_savings_in_cents"
     t.string  "stock_type"
     t.string  "primary_category"
     t.string  "secondary_category"
@@ -37,7 +35,6 @@ ActiveRecord::Schema.define(version: 20131007004039) do
     t.integer "total_package_volume_in_milliliters"
     t.integer "volume_in_milliliters"
     t.integer "alcohol_content"
-    t.integer "price_per_liter_of_alcohol_in_cents"
     t.integer "price_per_liter_in_cents"
     t.string  "producer_name"
     t.string  "image_thumb_url"
@@ -71,9 +68,6 @@ ActiveRecord::Schema.define(version: 20131007004039) do
     t.integer "saturday_open"
     t.integer "saturday_close"
     t.boolean "has_wheelchair_accessibility"
-    t.boolean "has_bilingual_services"
-    t.boolean "has_product_consultant"
-    t.boolean "has_tasting_bar"
     t.boolean "has_beer_cold_room"
     t.boolean "has_parking"
     t.boolean "has_transit_access"

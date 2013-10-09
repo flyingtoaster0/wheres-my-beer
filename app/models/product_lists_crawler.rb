@@ -7,8 +7,7 @@ class ProductListsCrawler
   end
 
   def continue?(current_params)
-    false
-    #current_params[:next_page] ? true : false
+    current_params[:next_page] ? true : false
   end
 
   def reduce
