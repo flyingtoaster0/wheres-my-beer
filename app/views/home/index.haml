@@ -1,1 +1,15 @@
-Dummy Text
+%div.masthead
+  %div.container
+    %div.row
+      %h1
+        Where's my beer?
+      %h3
+        Find out which LCBO locations are currently carrying your beer.
+    %div.row
+      = form_tag('/search', :method => 'post', :class => 'form-inline') do
+        %div.form-group
+          = text_field_tag :query, nil, :class=> 'form-control'
+        = button_tag "Search!", class: 'btn btn-primary btn-lg'
+      - if flash[:notice]
+        %div.alert.alert-warning
+          = flash[:notice]
