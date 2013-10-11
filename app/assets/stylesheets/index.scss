@@ -1,9 +1,13 @@
+html,body {
+  height: 100%;
+}
+
 body {
   background: none;
 }
 
 .full {
-  background: image-url("skyline_full.jpg") no-repeat center center fixed;
+  background: image-url("steamwhistle.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -16,6 +20,7 @@ body {
   padding: 8em 0;
   color: #fff;
   text-align: center;
+  height: 100%;
 
   h1 {
     padding: 2em;
@@ -37,6 +42,11 @@ body {
     color: #fcf8e3;
     border-color: #c09853;
     background-color: #c09853;
+  }
+
+  .dark-bg {
+    background: rgba(0,0,0,0.5);
+    height: 100%;
   }
 }
 
