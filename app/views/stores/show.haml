@@ -1,0 +1,85 @@
+- content_for :for_head do
+  %meta{content: "initial-scale=1.0, user-scalable=no", name: "viewport"}
+  %script{src: 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false'}
+  %script{src: 'http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false'}
+  :javascript
+    function initialize() {
+      var myLatlng = new google.maps.LatLng(-25.363882,131.044922);
+      var mapOptions = {
+        zoom: 4,
+        center: myLatlng,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      }
+      var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+      var marker = new google.maps.Marker({
+          position: myLatlng,
+          map: map,
+          title: 'Hello World!'
+      });
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+%div.container.tall-dark
+  %div.row.beer-container
+    %div.col-md-4
+      %h1
+        = @store.name
+      %table.table.store-table
+        %tbody
+          %tr
+            %td
+              = @store.address_line_1
+          %tr
+            %td
+              = @store.city
+          %tr
+            %td
+              = @store.telephone
+    %div.col-md-4
+      %h1
+        Store Hours
+      %table.table.time-table
+        %tbody
+          %tr
+            %td
+              Sunday:
+            %td
+              = @store.sunday_open
+              \ - #{@store.sunday_close}
+          %tr
+            %td
+              Monday:
+            %td
+              = @store.monday_open
+              \ - #{@store.monday_close}
+          %tr
+            %td
+              Tuesday:
+            %td
+              = @store.tuesday_open
+              \ - #{@store.tuesday_close}
+          %tr
+            %td
+              Wednesday:
+            %td
+              = @store.wednesday_open
+              \ - #{@store.wednesday_close}
+          %tr
+            %td
+              Thursday:
+            %td
+              = @store.thursday_open
+              \ - #{@store.thursday_close}
+          %tr
+            %td
+              Friday:
+            %td
+              = @store.friday_open
+              \ - #{@store.friday_close}
+          %tr
+            %td
+              Saturday:
+            %td
+              = @store.saturday_open
+              \ - #{@store.saturday_close}
+    %div#map-canvas

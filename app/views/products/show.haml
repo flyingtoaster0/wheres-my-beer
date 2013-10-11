@@ -29,7 +29,7 @@
             %td
               = store.city
             %td
-              = store.name
+              = link_to(store.name, url_for(:controller => 'stores', :action => 'show', :id => store.id ))
               %br
               = store.address_line_1
             %td
