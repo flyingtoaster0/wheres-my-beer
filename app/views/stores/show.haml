@@ -46,8 +46,8 @@
                 Sunday:
               %td
                 - unless @store.sunday_open.nil?
-                  = @store.sunday_open
-                  \ - #{@store.sunday_close}
+                  = DateTime.parse(@store.sunday_open.to_s.insert(@store.sunday_open.to_s.length-2,':')).strftime('%l:%M %p')
+                  \ - #{DateTime.parse(@store.sunday_close.to_s.insert(@store.sunday_open.to_s.length-2,':')).strftime('%l:%M %p')}
                 - else
                   Closed
             %tr
@@ -55,8 +55,8 @@
                 Monday:
               %td
                 - unless @store.monday_open.nil?
-                  = @store.monday_open
-                  \ - #{@store.monday_close}
+                  = DateTime.parse(@store.monday_open.to_s.insert(@store.monday_open.to_s.length-2,':')).strftime('%l:%M %p')
+                  \ - #{DateTime.parse(@store.monday_close.to_s.insert(@store.monday_close.to_s.length-2,':')).strftime('%l:%M %p')}
                 - else
                   Closed
             %tr
@@ -64,8 +64,8 @@
                 Tuesday:
               %td
                 - unless @store.tuesday_open.nil?
-                  = @store.tuesday_open
-                  \ - #{@store.tuesday_close}
+                  = DateTime.parse(@store.tuesday_open.to_s.insert(@store.tuesday_open.to_s.length-2,':')).strftime('%l:%M %p')
+                  \ - #{DateTime.parse(@store.tuesday_close.to_s.insert(@store.tuesday_close.to_s.length-2,':')).strftime('%l:%M %p')}
                 - else
                   Closed
             %tr
@@ -73,8 +73,8 @@
                 Wednesday:
               %td
                 - unless @store.wednesday_open.nil?
-                  = @store.wednesday_open
-                  \ - #{@store.wednesday_close}
+                  = DateTime.parse(@store.wednesday_open.to_s.insert(@store.wednesday_open.to_s.length-2,':')).strftime('%l:%M %p')
+                  \ - #{DateTime.parse(@store.wednesday_close.to_s.insert(@store.wednesday_close.to_s.length-2,':')).strftime('%l:%M %p')}
                 - else
                   Closed
             %tr
@@ -82,8 +82,8 @@
                 Thursday:
               %td
                 - unless @store.thursday_open.nil?
-                  = @store.thursday_open
-                  \ - #{@store.thursday_close}
+                  = DateTime.parse(@store.thursday_open.to_s.insert(@store.thursday_open.to_s.length-2,':')).strftime('%l:%M %p')
+                  \ - #{DateTime.parse(@store.thursday_close.to_s.insert(@store.thursday_close.to_s.length-2,':')).strftime('%l:%M %p')}
                 - else
                   Closed
             %tr
@@ -91,8 +91,8 @@
                 Friday:
               %td
                 - unless @store.friday_open.nil?
-                  = @store.friday_open
-                  \ - #{@store.friday_close}
+                  = DateTime.parse(@store.friday_open.to_s.insert(@store.friday_open.to_s.length-2,':')).strftime('%l:%M %p')
+                  \ - #{DateTime.parse(@store.friday_close.to_s.insert(@store.friday_close.to_s.length-2,':')).strftime('%l:%M %p')}
                 - else
                   Closed
             %tr
@@ -100,8 +100,8 @@
                 Saturday:
               %td
                 - unless @store.saturday_open.nil?
-                  = @store.saturday_open
-                  \ - #{@store.saturday_close}
+                  = DateTime.parse(@store.saturday_open.to_s.insert(@store.saturday_open.to_s.length-2,':')).strftime('%l:%M %p')
+                  \ - #{DateTime.parse(@store.saturday_close.to_s.insert(@store.saturday_close.to_s.length-2,':')).strftime('%l:%M %p')}
                 - else
                   Closed
     %div.row
