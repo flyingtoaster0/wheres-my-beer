@@ -9,8 +9,8 @@ class CreateStores < ActiveRecord::Migration
       t.string :postal_code
       t.string :telephone
       t.string :fax
-      t.integer :latitude
-      t.integer :longitude
+      t.decimal :latitude
+      t.decimal :longitude
       t.integer :sunday_open
       t.integer :sunday_close
       t.integer :monday_open
