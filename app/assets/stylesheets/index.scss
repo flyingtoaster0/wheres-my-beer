@@ -1,9 +1,13 @@
+html,body {
+  height: 100%;
+}
+
 body {
   background: none;
 }
 
 .full {
-  background: image-url("skyline_full.jpg") no-repeat center center fixed;
+  background: image-url("steamwhistle.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -16,6 +20,7 @@ body {
   padding: 8em 0;
   color: #fff;
   text-align: center;
+  height: 100%;
 
   h1 {
     padding: 2em;
@@ -38,6 +43,59 @@ body {
     border-color: #c09853;
     background-color: #c09853;
   }
+
+  .dark-bg {
+    background: rgba(0,0,0,0.5);
+    min-height: 100%;
+  }
+}
+
+
+.tall-dark {
+  background: rgba(0,0,0,0.5);
+  min-height: 100%;
+  padding: 1.5em 3em;
+  color: white;
+}
+
+.beer-container {
+  background: rgba(0,0,0,0.5);
+  padding: 1.5em;
+  min-height: 100%;
+
+  .stock {
+    padding: 2em;
+  }
+
+  .product-detail {
+
+  }
+
+  .store-table td{
+    border-top: none;
+  }
+
+  .time-table td{
+    border-top: none;
+    padding: 2px;
+
+  }
+  .time-table tr:hover {
+    background: rgba(0,0,0,0.5);
+  }
+
+  .row {
+    .map {
+      padding: 2em;
+      #map-canvas {
+        height: 28em;
+        width: 28em;
+        margin: auto;
+      }
+    }
+  }
+
+
 }
 
 

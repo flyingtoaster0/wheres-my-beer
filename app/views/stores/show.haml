@@ -1,0 +1,109 @@
+- content_for :for_head do
+  %meta{content: "initial-scale=1.0, user-scalable=no", name: "viewport"}
+  %script{src: 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false'}
+  %script{src: 'http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false'}
+  :javascript
+    function initialize() {
+      var myLatlng = new google.maps.LatLng(#{@store.latitude},#{@store.longitude});
+      var mapOptions = {
+        zoom: 13,
+        center: myLatlng,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      }
+      var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+      var marker = new google.maps.Marker({
+          position: myLatlng,
+          map: map,
+          title: 'Hello World!'
+      });
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+%div.container.tall-dark
+  %div.row.beer-container
+    %div.row
+      %div.col-md-6
+        %h1
+          = @store.name
+        %table.table.store-table
+          %tbody
+            %tr
+              %td
+                = @store.address_line_1
+            %tr
+              %td
+                = @store.city
+            %tr
+              %td
+                = @store.telephone
+      %div.col-md-6
+        %h1
+          Store Hours
+        %table.table.time-table
+          %tbody
+            %tr
+              %td
+                Sunday:
+              %td
+                - unless @store.sunday_open.nil?
+                  = msmTo12time(@store.sunday_open)
+                  \ - #{msmTo12time(@store.sunday_close)}
+                - else
+                  Closed
+            %tr
+              %td
+                Monday:
+              %td
+                - unless @store.monday_open.nil?
+                  = msmTo12time(@store.monday_open)
+                  \ - #{msmTo12time(@store.monday_close)}
+                - else
+                  Closed
+            %tr
+              %td
+                Tuesday:
+              %td
+                - unless @store.tuesday_open.nil?
+                  = msmTo12time(@store.tuesday_open)
+                  \ - #{msmTo12time(@store.tuesday_close)}
+                - else
+                  Closed
+            %tr
+              %td
+                Wednesday:
+              %td
+                - unless @store.wednesday_open.nil?
+                  = msmTo12time(@store.wednesday_open)
+                  \ - #{msmTo12time(@store.wednesday_close)}
+                - else
+                  Closed
+            %tr
+              %td
+                Thursday:
+              %td
+                - unless @store.thursday_open.nil?
+                  = msmTo12time(@store.thursday_open)
+                  \ - #{msmTo12time(@store.thursday_close)}
+                - else
+                  Closed
+            %tr
+              %td
+                Friday:
+              %td
+                - unless @store.friday_open.nil?
+                  = msmTo12time(@store.friday_open)
+                  \ - #{msmTo12time(@store.friday_close)}
+                - else
+                  Closed
+            %tr
+              %td
+                Saturday:
+              %td
+                - unless @store.saturday_open.nil?
+                  = msmTo12time(@store.saturday_open)
+                  \ - #{msmTo12time(@store.saturday_close)}
+                - else
+                  Closed
+    %div.row
+      %div.map
+        %div#map-canvas

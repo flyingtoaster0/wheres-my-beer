@@ -1,9 +1,40 @@
-= @product.name
-/ Put product picture, name, tertiary category
-
-
-
-
-
-- @inventory.each do |i|
-  = i.quantity
+%div.container.tall-dark
+  %div.row.beer-container
+    %div.row
+      %div.col-md-4
+        = image_tag(@product.image_thumb_url)
+      %div.col-md-8
+        %h1
+          = @product.name
+        %div.product-detail
+          = @product.tertiary_category
+        %div.product-detail
+          = @product.origin
+        %div.product-detail
+          = number_to_currency(@product.price_in_cents.to_i/100.0)
+    %div.row.stock
+      %table.table
+        %thead
+          %tr
+            %th
+              City
+            %th
+              Address
+            %th
+              Last Updated
+            %th
+              Quantity
+        %tbody
+          - @inventory.each do |i|
+            - store = Store.find(i.store_id)
+            %tr
+              %td
+                = store.city
+              %td
+                = link_to(store.name, url_for(:controller => 'stores', :action => 'show', :id => store.id ))
+                %br
+                = store.address_line_1
+              %td
+                / need to get date updated from LCBO database. It's different from my date updated
+              %td
+                = i.quantity
