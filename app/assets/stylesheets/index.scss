@@ -46,14 +46,14 @@ body {
 
   .dark-bg {
     background: rgba(0,0,0,0.5);
-    height: 100%;
+    min-height: 100%;
   }
 }
 
 
 .tall-dark {
   background: rgba(0,0,0,0.5);
-  height: 100%;
+  min-height: 100%;
   padding: 1.5em 3em;
   color: white;
 }
@@ -62,6 +62,10 @@ body {
   background: rgba(0,0,0,0.5);
   padding: 1.5em;
   min-height: 100%;
+
+  .stock {
+    padding: 2em;
+  }
 
   .product-detail {
 
@@ -79,12 +83,19 @@ body {
   .time-table tr:hover {
     background: rgba(0,0,0,0.5);
   }
-    #map-canvas {
-      height: 32em;
-      width: 32em;
-      margin: 0px;
-      padding: 0px
+
+  .row {
+    .map {
+      padding: 2em;
+      #map-canvas {
+        height: 28em;
+        width: 28em;
+        margin: auto;
+      }
     }
+  }
+
+
 }
 
 
