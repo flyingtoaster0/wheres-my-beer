@@ -5,9 +5,9 @@ Wheresmybeer::Application.routes.draw do
 
   match 'stores/:id' => 'stores#show', :via => [:get]
 
-  namespace :api do
+  namespace :api, :defaults => {:format => :json} do
     resources :products
-    match 'search' => 'products#search', :via => [:post]
+    match 'search' => 'products#search', :via => [:get]
     match 'stores/:id' => 'stores#show', :via => [:get]
   end
 
