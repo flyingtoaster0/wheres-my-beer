@@ -1,5 +1,8 @@
 module LCBO
   class ProductListPage
+
+    PER_PAGE=2000
+
     uri 'http://lcbo.com/lcbo-ear/lcbo/product/searchResults.do?' \
       'STOCK_TYPE_NAME=All&' \
       'ITEM_NAME=&KEYWORDS=&' \
@@ -27,5 +30,6 @@ module LCBO
       'action=result&' \
       'sort=sortedName&' \
       'order=1&' \
+      "resultsPerPage=#{PER_PAGE}"
   end
 end

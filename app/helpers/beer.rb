@@ -68,7 +68,7 @@ module Beer
     online_inventories = LCBO.inventory(id)
 
     online_inventories[:inventories].each do |i|
-      new_inventory = Inventory.where(store_id: i[:store_id]).first_or_create
+      new_inventory = Inventory.where(store_id: i[:store_id], product_id: id).first_or_create
       new_inventory.product_id = id
       new_inventory.quantity = i[:quantity]
       new_inventory.save
