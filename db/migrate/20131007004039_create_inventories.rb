@@ -4,6 +4,7 @@ class CreateInventories < ActiveRecord::Migration
       t.integer :store_id
       t.integer :product_id
       t.integer :quantity
+      t.string :date_updated
     end
   end
 end
